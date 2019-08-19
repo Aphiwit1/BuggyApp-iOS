@@ -9,8 +9,24 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
+    
+    @IBOutlet weak var mTextField: UITextField!
+    @IBOutlet weak var mButton: UIButton!
+    
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
   }
+    
+    
+    @IBAction func btnSubmit(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "showthirdViewController") as? ShowThirdViewController
+       vc?.mVC2ShowName = mTextField.text!
+        
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    
+    
 }
