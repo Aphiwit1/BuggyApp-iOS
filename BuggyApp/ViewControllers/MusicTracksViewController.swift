@@ -25,6 +25,7 @@ class MusicTracksViewController: UIViewController {
     
     APIManager.shared.getArtistInfo(artistName: "taylorswift") { [weak self] result in
       switch result {
+      
       case .success(let tracks):
         self?.tracks = tracks
       case .failure(let error):
@@ -32,6 +33,7 @@ class MusicTracksViewController: UIViewController {
         let dismissAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(dismissAction)
         self?.present(alert, animated: true)
+          print("------>api music------>")
       }
     }
   }
@@ -41,8 +43,10 @@ class MusicTracksViewController: UIViewController {
       let viewController = segue.destination as? MusicTrackDetailViewController,
       let selectedTrack = sender as? Track {
       viewController.track = selectedTrack
+        print("-----> prepare<--------")
     }
   }
+    
 }
 
 extension MusicTracksViewController: UITableViewDataSource {
@@ -55,7 +59,15 @@ extension MusicTracksViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     let track: Track = tracks[indexPath.item]
+    
+    print("track---------> ", track)
+    
+    
+    
     cell.configCell(track: track)
+    
+//    let vc = storyboard?.instantiateViewController(withIdentifier: "ShowMusic") as? TrackTableViewCell
+    
     return cell
   }
 }
@@ -66,6 +78,8 @@ extension MusicTracksViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
+    
+    performSegue(withIdentifier: "showDetail", sender: self)
+    
   }
 }

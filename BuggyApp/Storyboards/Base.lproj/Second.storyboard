@@ -84,6 +84,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
+                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="rDK-Ls-Gdc"/>
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="da3-bz-R5l"/>
                                 </connections>
                             </tableView>
@@ -110,7 +111,7 @@
         <!--Music Track Detail View Controller-->
         <scene sceneID="LOn-Ac-mqi">
             <objects>
-                <viewController id="cUH-eN-7PC" customClass="MusicTrackDetailViewController" customModule="BuggyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowMusic" id="cUH-eN-7PC" customClass="MusicTrackDetailViewController" customModule="BuggyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mb6-Fn-4JY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

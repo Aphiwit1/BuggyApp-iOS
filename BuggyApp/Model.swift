@@ -35,7 +35,7 @@ struct Track {
   let artistId : Int
   let artistName: String
   let collectionName: String
-  let trackName: String
+    var trackName: String
   let artworkUrl: String
   let collectionPrice: Double
   let trackPrice: Double
